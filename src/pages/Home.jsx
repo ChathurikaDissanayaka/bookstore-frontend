@@ -10,7 +10,7 @@ const Home = () => {
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(false);
   const [showType, setShowType] = useState("table");
-  const backendUrl = import.meta.env.BACKEND_URL;
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
   useEffect(() => {
     setLoading(true);
     axios

@@ -10,7 +10,7 @@ const CreateBooks = () => {
   const [publishedYear, setPublishedYear] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const backendUrl = import.meta.env.BACKEND_URL;
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
   const { enqueueSnackbar } = useSnackbar();
   const handleSaveBook = () => {
     const data = {
