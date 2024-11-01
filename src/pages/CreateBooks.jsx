@@ -46,6 +46,7 @@ const CreateBooks = () => {
           <input
             type="text"
             value={title}
+            required
             onChange={(e) => setTitle(e.target.value)}
             className="border-2 border-sky-400 px-4 py-2 w-full text-gray-700 rounded-lg"
           />
@@ -55,6 +56,7 @@ const CreateBooks = () => {
           <input
             type="text"
             value={author}
+            required
             onChange={(e) => setAuthor(e.target.value)}
             className="border-2 border-sky-400 px-4 py-2 w-full text-gray-700 rounded-lg"
           />
@@ -64,6 +66,7 @@ const CreateBooks = () => {
           <input
             type="text"
             value={publishedYear}
+            required
             onChange={(e) => setPublishedYear(e.target.value)}
             className="border-2 border-sky-400 px-4 py-2 w-full text-gray-700 rounded-lg"
           />
