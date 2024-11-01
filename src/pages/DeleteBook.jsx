@@ -8,11 +8,12 @@ const DeleteBook = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const { id } = useParams();
+  const backendUrl = import.meta.env.BACKEND_URL;
   const { enqueueSnackbar } = useSnackbar();
   const handleDeleteBook = () => {
     setLoading(true);
     axios
-      .delete(`http://localhost:3000/books/${id}`)
+      .delete(`${backendUrl}/books/${id}`)
       .then(() => {
         setLoading(false);
         enqueueSnackbar("Book has been deleted.", {

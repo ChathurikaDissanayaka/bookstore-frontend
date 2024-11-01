@@ -12,11 +12,12 @@ const EditBook = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const { id } = useParams();
+  const backendUrl = import.meta.env.BACKEND_URL;
   const { enqueueSnackbar } = useSnackbar();
   useEffect(() => {
     setLoading(true);
     axios
-      .get(`http://localhost:3000/books/${id}`)
+      .get(`${backendUrl}/books/${id}`)
       .then((res) => {
         setTitle(res.data.title);
         setAuthor(res.data.author);
@@ -27,7 +28,7 @@ const EditBook = () => {
         setLoading(false);
         console.log(err);
       });
-  }, [id]);
+  }, [backendUrl, id]);
 
   const handleEditBook = () => {
     const data = {
@@ -37,7 +38,7 @@ const EditBook = () => {
     };
     setLoading(true);
     axios
-      .put(`http://localhost:3000/books/${id}`, data)
+      .put(`${backendUrl}/books/${id}`, data)
       .then(() => {
         setLoading(false);
         enqueueSnackbar("Book has been edited successfully.", {

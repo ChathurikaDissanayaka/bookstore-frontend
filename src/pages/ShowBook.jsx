@@ -7,11 +7,11 @@ const ShowBook = () => {
   const [book, setBook] = useState({});
   const [loading, setLoading] = useState(false);
   const { id } = useParams();
-
+  const backendUrl = import.meta.env.BACKEND_URL;
   useEffect(() => {
     setLoading(true);
     axios
-      .get(`http://localhost:3000/books/${id}`)
+      .get(`${backendUrl}/books/${id}`)
       .then((res) => {
         setBook(res.data);
         setLoading(false);
@@ -19,7 +19,7 @@ const ShowBook = () => {
       .catch((err) => {
         console.log(err);
       });
-  }, [id]);
+  }, [backendUrl, id]);
 
   return (
     <div className="p-4">

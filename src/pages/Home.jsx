@@ -10,10 +10,11 @@ const Home = () => {
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(false);
   const [showType, setShowType] = useState("table");
+  const backendUrl = import.meta.env.BACKEND_URL;
   useEffect(() => {
     setLoading(true);
     axios
-      .get("http://localhost:3000/books")
+      .get(`${backendUrl}/books`)
       .then((res) => {
         setBooks(res.data.data);
         setLoading(false);
@@ -22,7 +23,7 @@ const Home = () => {
         console.log(err);
         setLoading(false);
       });
-  }, []);
+  }, [backendUrl]);
   return (
     <div className="p-4">
       <div className="flex justify-center items-center gap-x-4">

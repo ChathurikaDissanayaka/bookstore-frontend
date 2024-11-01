@@ -10,6 +10,7 @@ const CreateBooks = () => {
   const [publishedYear, setPublishedYear] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const backendUrl = import.meta.env.BACKEND_URL;
   const { enqueueSnackbar } = useSnackbar();
   const handleSaveBook = () => {
     const data = {
@@ -19,7 +20,7 @@ const CreateBooks = () => {
     };
     setLoading(true);
     axios
-      .post("http://localhost:3000/books", data)
+      .post(`${backendUrl}/books`, data)
       .then(() => {
         setLoading(false);
         enqueueSnackbar("Book has been created successfully.", {
