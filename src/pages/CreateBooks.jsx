@@ -16,7 +16,12 @@ const CreateBooks = () => {
     if (!title || !author || !publishedYear) {
       enqueueSnackbar("All fields are required.", { variant: "warning" });
       return;
-    } 
+    } else if (publishedYear.length != 4) {
+      enqueueSnackbar("Year should be 4 characters in length.", {
+        variant: "warning",
+      });
+      return;
+    }
 
     const data = {
       title,

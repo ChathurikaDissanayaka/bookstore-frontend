@@ -31,6 +31,16 @@ const EditBook = () => {
   }, [backendUrl, id]);
 
   const handleEditBook = () => {
+    if (!title || !author || !publishedYear) {
+      enqueueSnackbar("All fields are required.", { variant: "warning" });
+      return;
+    } else if (publishedYear.length != 4) {
+      enqueueSnackbar("Year should be 4 characters in length.", {
+        variant: "warning",
+      });
+      return;
+    }
+
     const data = {
       title,
       author,
@@ -80,8 +90,10 @@ const EditBook = () => {
         <div className="my-4">
           <label className="text-xl mr-4 text-gray-800">Published Year:</label>
           <input
-            type="text"
+            type="number"
             value={publishedYear}
+            min="1000"
+            max={new Date().getFullYear()}
             onChange={(e) => setPublishedYear(e.target.value)}
             className="border-2 border-sky-400 px-4 py-2 w-full text-gray-700 rounded-lg"
           />
