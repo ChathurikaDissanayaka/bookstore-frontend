@@ -50,30 +50,30 @@ const CreateBooks = () => {
   return (
     <div className="p-4">
       <BackButton />
-      <h1 className="text-3xl my-4">Add New Book</h1>
+     
       {loading ? <Spinner /> : ""}
-      <div className="flex flex-col border-sky-400 rounded-xl w-[600px] p-4 mx-auto">
-        <div className="my-4">
+      <div className="flex flex-col border-sky-400 rounded-xl w-full sm:w-[90%] md:w-[400px] lg:w-[600px] p-4 mx-auto">
+        <div className="my-2">
           <label className="text-xl mr-4 text-gray-800">Title:</label>
           <input
             type="text"
             value={title}
             placeholder="To Kill a Mockingbird"
             onChange={(e) => setTitle(e.target.value)}
-            className="border-2 border-sky-400 px-4 py-2 w-full text-gray-700 rounded-lg"
+            className="border-2 border-sky-400 px-4 py-2 w-full text-gray-700 rounded-lg my-2"
           />
         </div>
-        <div className="my-4">
+        <div className="my-2">
           <label className="text-xl mr-4 text-gray-800">Author:</label>
           <input
             type="text"
             value={author}
             placeholder="Harper Lee"
             onChange={(e) => setAuthor(e.target.value)}
-            className="border-2 border-sky-400 px-4 py-2 w-full text-gray-700 rounded-lg"
+            className="border-2 border-sky-400 px-4 py-2 w-full text-gray-700 rounded-lg my-2"
           />
         </div>
-        <div className="my-4">
+        <div className="my-2">
           <label className="text-xl mr-4 text-gray-800">Published Year:</label>
           <input
             type="number"
@@ -82,11 +82,11 @@ const CreateBooks = () => {
             max={new Date().getFullYear()}
             placeholder="1960"
             onChange={(e) => setPublishedYear(e.target.value)}
-            className="border-2 border-sky-400 px-4 py-2 w-full text-gray-700 rounded-lg"
+            className="border-2 border-sky-400 px-4 py-2 w-full text-gray-700 rounded-lg my-2"
           />
         </div>
         <button
-          className="py-2 w-full bg-sky-400 hover:bg-sky-300 my-8 rounded-lg text-white"
+          className="border-2 border-sky-400 py-2 w-full bg-sky-400 hover:bg-sky-300 my-4 rounded-lg text-white"
           onClick={handleSaveBook}
         >
           Save Details
