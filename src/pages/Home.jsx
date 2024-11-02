@@ -11,6 +11,7 @@ const Home = () => {
   const [loading, setLoading] = useState(false);
   const [showType, setShowType] = useState("table");
   const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
   useEffect(() => {
     setLoading(true);
     axios
@@ -24,6 +25,7 @@ const Home = () => {
         setLoading(false);
       });
   }, [backendUrl]);
+  
   return (
     <div className="p-4">
       <div className="flex justify-center items-center gap-x-4">
