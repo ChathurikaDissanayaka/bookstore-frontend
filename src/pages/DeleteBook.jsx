@@ -28,13 +28,12 @@ const DeleteBook = () => {
         console.log(err);
       });
   };
-  
+
   return (
     <div className="p-4">
       <BackButton />
-      {/* <h1 className="text-3xl my-4">Delete the Book</h1> */}
       {loading ? <Spinner /> : ""}
-      <div className="flex flex-col items-center border-2 border-sky-400 rounded-xl w-[600px] p-8 mx-auto my-16">
+      <div className="flex flex-col items-center border-2 border-sky-400 rounded-xl w-full sm:w-[90%] md:w-[400px] lg:w-[600px] p-8 mx-auto my-16">
         <h3 className="text-2xl">Do you really want to delete this book?</h3>
         <button
           className="p-4 bg-red-500 hover:bg-red-400 text-white m-8 w-full rounded-lg"

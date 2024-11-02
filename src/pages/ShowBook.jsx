@@ -26,7 +26,6 @@ const ShowBook = () => {
   return (
     <div className="p-4">
       <BackButton />
-      {/* <h1 className="text-3xl my-4">Details of the book</h1> */}
       {loading ? (
         <Spinner />
       ) : (
