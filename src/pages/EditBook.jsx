@@ -98,7 +98,7 @@ const EditBook = () => {
           />
         </div>
         <button
-          className="border-2 border-sky-400 py-2 w-full bg-sky-400 hover:bg-sky-300 my-4 rounded-lg text-white"
+          className="border-2 border-sky-400 hover:border-sky-300 py-2 w-full bg-sky-400 hover:bg-sky-300 my-4 rounded-lg text-white"
           onClick={handleEditBook}
         >
           Save Details
