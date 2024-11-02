@@ -14,6 +14,7 @@ const EditBook = () => {
   const { id } = useParams();
   const backendUrl = import.meta.env.VITE_BACKEND_URL;
   const { enqueueSnackbar } = useSnackbar();
+
   useEffect(() => {
     setLoading(true);
     axios
@@ -40,7 +41,6 @@ const EditBook = () => {
       });
       return;
     }
-
     const data = {
       title,
       author,

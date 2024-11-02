@@ -10,6 +10,7 @@ const DeleteBook = () => {
   const { id } = useParams();
   const backendUrl = import.meta.env.VITE_BACKEND_URL;
   const { enqueueSnackbar } = useSnackbar();
+
   const handleDeleteBook = () => {
     setLoading(true);
     axios
@@ -27,6 +28,7 @@ const DeleteBook = () => {
         console.log(err);
       });
   };
+  
   return (
     <div className="p-4">
       <BackButton />
