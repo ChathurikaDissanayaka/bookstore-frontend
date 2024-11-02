@@ -11,22 +11,21 @@ export const BookModal = ({ book, onClose }) => {
     >
       <div
         onClick={(event) => event.stopPropagation()}
-        className="w-[400px] max-w-full h-[300px] bg-white rounded-xl p-16 flex flex-col relative"
+        className="w-[400px] max-w-full h-[300px] bg-white rounded-xl p-8 flex flex-col relative"
       >
         <AiOutlineClose
-          className="absolute right-6 top-6 text-3xl text-red-600 cursor-pointer"
+          className="absolute right-6 top-6 text-3xl text-sky-400 cursor-pointer"
           onClick={onClose}
         />
-        <h2 className="w-fit px-4 py-1 bg-red-300 rounded-lg">
+        <h2 className="w-fit py-1 text-sky-400 rounded-lg">
         {book.publishedYear}
       </h2>
-      <h4 className="my-2 text-gray-500">{book._id}</h4>
       <div className="flex justify-start items-center gap-x-2">
-        <PiBookOpenTextLight className="text-red-300 text-2xl" />
+        <PiBookOpenTextLight className="text-sky-400 text-2xl" />
         <h2 className="my-1">{book.title}</h2>
       </div>
       <div className="flex justify-start items-center gap-x-2">
-        <BiUserCircle className="text-red-300 text-2xl" />
+        <BiUserCircle className="text-sky-400 text-2xl" />
         <h2 className="my-1">{book.author}</h2>
       </div>
       </div>
