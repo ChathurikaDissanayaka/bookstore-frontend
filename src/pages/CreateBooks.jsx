@@ -13,6 +13,11 @@ const CreateBooks = () => {
   const backendUrl = import.meta.env.VITE_BACKEND_URL;
   const { enqueueSnackbar } = useSnackbar();
   const handleSaveBook = () => {
+    if (!title || !author || !publishedYear) {
+      enqueueSnackbar("All fields are required.", { variant: "warning" });
+      return;
+    } 
+
     const data = {
       title,
       author,
@@ -46,7 +51,7 @@ const CreateBooks = () => {
           <input
             type="text"
             value={title}
-            required
+            placeholder="To Kill a Mockingbird"
             onChange={(e) => setTitle(e.target.value)}
             className="border-2 border-sky-400 px-4 py-2 w-full text-gray-700 rounded-lg"
           />
@@ -56,7 +61,7 @@ const CreateBooks = () => {
           <input
             type="text"
             value={author}
-            required
+            placeholder="Harper Lee"
             onChange={(e) => setAuthor(e.target.value)}
             className="border-2 border-sky-400 px-4 py-2 w-full text-gray-700 rounded-lg"
           />
@@ -64,9 +69,11 @@ const CreateBooks = () => {
         <div className="my-4">
           <label className="text-xl mr-4 text-gray-800">Published Year:</label>
           <input
-            type="text"
+            type="number"
             value={publishedYear}
-            required
+            min="1000"
+            max={new Date().getFullYear()}
+            placeholder="1960"
             onChange={(e) => setPublishedYear(e.target.value)}
             className="border-2 border-sky-400 px-4 py-2 w-full text-gray-700 rounded-lg"
           />
