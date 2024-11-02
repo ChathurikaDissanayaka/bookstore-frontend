@@ -32,11 +32,12 @@ const EditBook = () => {
   }, [backendUrl, id]);
 
   const handleEditBook = () => {
+    const currentYear = new Date().getFullYear();
     if (!title || !author || !publishedYear) {
       enqueueSnackbar("All fields are required.", { variant: "warning" });
       return;
-    } else if (publishedYear.length != 4) {
-      enqueueSnackbar("Year should be 4 characters in length.", {
+    } else if (publishedYear < 0 || publishedYear > currentYear) {
+      enqueueSnackbar("Please enter a valid published year.", {
         variant: "warning",
       });
       return;
@@ -91,7 +92,7 @@ const EditBook = () => {
           <input
             type="number"
             value={publishedYear}
-            min="1000"
+            min={0}
             max={new Date().getFullYear()}
             onChange={(e) => setPublishedYear(e.target.value)}
             className="border-2 border-sky-400 px-4 py-2 w-full text-gray-700 rounded-lg my-2"

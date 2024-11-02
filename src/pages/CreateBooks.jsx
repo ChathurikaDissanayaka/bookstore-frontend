@@ -15,11 +15,12 @@ const CreateBooks = () => {
   const { enqueueSnackbar } = useSnackbar();
 
   const handleSaveBook = () => {
+    const currentYear = new Date().getFullYear();
     if (!title || !author || !publishedYear) {
       enqueueSnackbar("All fields are required.", { variant: "warning" });
       return;
-    } else if (publishedYear.length != 4) {
-      enqueueSnackbar("Year should be 4 characters in length.", {
+    } else if (publishedYear < 0 || publishedYear > currentYear) {
+      enqueueSnackbar("Please enter a valid published year.", {
         variant: "warning",
       });
       return;
@@ -78,7 +79,7 @@ const CreateBooks = () => {
           <input
             type="number"
             value={publishedYear}
-            min="1000"
+            min={0}
             max={new Date().getFullYear()}
             placeholder="1960"
             onChange={(e) => setPublishedYear(e.target.value)}
